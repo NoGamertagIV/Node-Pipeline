@@ -23,13 +23,17 @@ pipeline {
             }
         }
         stage('Test') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+
             steps {
-                echo 'Testing the new laptop ...'
                 sh '''
-                    test -f build/$BUILD_FILE_NAME
-                    grep "Mainboard" build/$BUILD_FILE_NAME
-                    grep "Display" build/$BUILD_FILE_NAME
-                    grep "Keyboard" build/$BUILD_FILE_NAME
+                    test -f build/index.html
+                    npm test
                 '''
             }
         }
