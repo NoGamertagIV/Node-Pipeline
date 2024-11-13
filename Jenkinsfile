@@ -31,6 +31,9 @@ pipeline {
             }
 
             steps {
+                 script {
+            sh 'ls -R' // Lists all files to confirm file structure
+        }
                 sh '''
                     test -f public/index.html
                     npm test
