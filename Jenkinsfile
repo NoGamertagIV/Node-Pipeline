@@ -32,7 +32,7 @@ pipeline {
 
             steps {
                 sh '''
-                    test -f public/index.html
+                    test -f C:\Users\dylan\OneDrive\Documents\VS Code Files\Node-Pipeline\public\index.html/index.html
                     npm test
                 '''
             }
