@@ -7,9 +7,15 @@ pipeline {
 
     stages {
         stage('Build') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
             steps {
-                cleanWs()
+                
                 echo 'Building a new laptop ...'
+                
                 sh '''
                    ls -la
                     node --version
