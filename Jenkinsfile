@@ -12,6 +12,7 @@ pipeline {
                         image 'node:18-alpine'
                         reuseNode true
                     }
+                }
                 steps {
                     
                     echo 'Building a new laptop ...'
@@ -25,7 +26,7 @@ pipeline {
                         ls -la
                     '''
                 }
-            }
+            
             stage('Test') {
 
                 steps {
